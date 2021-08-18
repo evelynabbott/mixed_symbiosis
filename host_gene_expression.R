@@ -13,9 +13,9 @@ library(hexbin)
 
 #deseq================================================================================================
 rm(list=ls())
-setwd("~/Dropbox/codominant_symbiosis/")
+setwd("~/Dropbox/mixed_symbiosis/")
 
-ll=load('counts_metadata/coldata.Rdata') 
+ll=load('coldata.Rdata') 
 
 # calculating symbiont proportions
 cc=10^(coldata$logCcount)
@@ -324,8 +324,8 @@ dev.off()
 
 # ------ writing input tables for GO_MWU
 
-write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdd)),file="~/Dropbox/mega2019/mega2019_clean/TagSeq/GO_MWU/cdd_10r.csv",row.names=F, quote=F)
-write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdcd)),file="~/Dropbox/mega2019/mega2019_clean/TagSeq/GO_MWU/cdcd_10r.csv",row.names=F, quote=F)
-write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdcdd)),file="~/Dropbox/mega2019/mega2019_clean/TagSeq/GO_MWU/cdcdd_10r.csv",row.names=F, quote=F)
-write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdcdd.c)),file="~/Dropbox/mega2019/mega2019_clean/TagSeq/GO_MWU/cdcdd.c_10r.csv",row.names=F, quote=F)
+write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdd)),file="~/Dropbox/mixed_symbiosis/cdd_10r.csv",row.names=F, quote=F)
+write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdcd)),file="~/Dropbox/mixed_symbiosis/cdcd_10r.csv",row.names=F, quote=F)
+write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdcdd)),file="~/Dropbox/mixed_symbiosis/cdcdd_10r.csv",row.names=F, quote=F)
+write.csv(data.frame(cbind(gene=row.names(resps),lfc=resps$cdcdd.c)),file="~/Dropbox/mixed_symbiosis/cdcdd.c_10r.csv",row.names=F, quote=F)
 
