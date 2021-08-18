@@ -12,14 +12,14 @@ library(hexbin)
 
 #deseq================================================================================================
 rm(list=ls())
-setwd("~/Dropbox/codominant_symbiosis/")
+setwd("~/Dropbox/mixed_symbiosis/")
 
 coldata0=read.csv("seneca2015_fullRTEdesign.csv")
 coldata0$sample=sub("_.+","",coldata0$X)
 coldata0$X=sub("^\\d+_","",coldata0$X)
 
 # loading our data table, recalculating C and D proportions
-ll=load('counts_metadata/coldata.Rdata') 
+ll=load('coldata.Rdata') 
 dim(coldata)
 cc=10^(coldata$logCcount)
 dd=10^(coldata$logDcount)
