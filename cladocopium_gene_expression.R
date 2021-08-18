@@ -15,10 +15,10 @@ library(hexbin)
 #deseq================================================================================================
 rm(list=ls())
 dev.off()
-setwd("~/Dropbox/codominant_symbiosis/")
+setwd("~/Dropbox/mixed_symbiosis/")
 
 #ll=load('counts_metadata/coldata_redME_evenness.Rdata') 
-ll=load('counts_metadata/coldata.Rdata') 
+ll=load('coldata.Rdata') 
 dim(coldata)
 
 # calculating symb proportions (from logs that were there already)
@@ -39,7 +39,7 @@ outliers=c("SRR629129",
 "SRR629155")
 coldata=coldata[!(coldata$Run %in% outliers),]
 
-ll=load('counts_metadata/countsC')
+ll=load('cladeC_counts.Rdata')
 rownames(coldata)=coldata$Run
 keeps = row.names(coldata)
 keeps=intersect(keeps,names(counts))
@@ -135,7 +135,7 @@ save(vsd.re.c,coldata.re.c,updown.c,file="resample25k_C_v3b.RData")
 # writing down data for GO_MWU
 
 lfc=data.frame(cbind(gene=row.names(vsd),lfc=lfc))
-write.csv(data.frame(lfc),file="~/Dropbox/mega2019/mega2019_clean/TagSeq/GO_MWU/resampledC_go_Cprop_v3b_lfc.csv",row.names=F,quote=F)
+write.csv(data.frame(lfc),file="~/Dropbox/mixed_symbiosis/resampledC_go_Cprop_v3b_lfc.csv",row.names=F,quote=F)
 #plot(lfc[,2]~lfce[,2])
 
 
@@ -145,5 +145,5 @@ library(RColorBrewer)
 heat.color=colorRampPalette(c("navyblue","navyblue","navyblue","navyblue",rev(brewer.pal(n = 7, name ="RdYlBu")),"firebrick","firebrick","firebrick","firebrick"))(100)
 pdf("vsd_C_resampled_heatmap_k100_v3.pdf",width=5,height=3)
 pheatmap(vsd.re[,order(coldata.re$Dprop)],cluster_cols=F,kmeans_k=250,scale="row",cex=0,color=heat.color)
-dev.off()
+
 
