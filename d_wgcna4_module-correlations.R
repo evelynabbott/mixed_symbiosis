@@ -7,7 +7,7 @@
 rm(list=ls())
 
 #setwd("~/Dropbox/project/bleww_final/scratchwork")
-setwd("~/Dropbox/codominant_symbiosis/")
+setwd("~/Dropbox/mixed_symbiosis/")
 #=====================================================================================
 #
 #  Code chunk 1
@@ -350,7 +350,7 @@ table(mediumpurple3$mediumpurple3Membership > 0)
 
 head(mediumpurple3)
 mediumpurple3 %>% 
-  write_csv(path='/home/evelyn/Dropbox/project/bleww_final/Zoox_expr/fightzone/D/wgcna/test/anothertry2/sft12_merge4_mediumpurple3Membership_ForMWU.csv')
+  write_csv(path='~/Dropbox/mixed_symbiosis/sft12_merge4_mediumpurple3Membership_ForMWU.csv')
 
 #stopped here
 
