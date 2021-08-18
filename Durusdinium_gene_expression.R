@@ -13,11 +13,11 @@ library(hexbin)
 
 #deseq================================================================================================
 rm(list=ls())
-setwd("~/Dropbox/codominant_symbiosis/")
+setwd("~/Dropbox/mixed_symbiosis/")
 rm(list=ls())
 
 #ll=load('counts_metadata/coldata_redME_evenness.Rdata') 
-ll=load('counts_metadata/coldata.Rdata') 
+ll=load('coldata.Rdata') 
 dim(coldata)
 
 # calculating proportions
@@ -39,7 +39,7 @@ outliers=c("SRR629129",
 coldata=coldata[!(coldata$Run %in% outliers),]
 
 
-ll=load('counts_metadata/countsD')
+ll=load('cladeD_counts')
 rownames(coldata)=coldata$Run
 keeps = row.names(coldata)
 keeps=intersect(keeps,names(counts))
@@ -129,7 +129,7 @@ save(vsd.re.d,coldata.re.d,updown.d,file="resample25k_D_v3b.RData")
 
 #  writing data for GO
 lfc=data.frame(cbind(gene=row.names(vsd),lfc=lfc))
-write.csv(data.frame(lfc),file="~/Dropbox/mega2019/mega2019_clean/TagSeq/GO_MWU/resampledD_go_Dprop_v3b_lfc.csv",row.names=F,quote=F)
+write.csv(data.frame(lfc),file="~/Dropbox/mixed_symbiosis/resampledD_go_Dprop_v3b_lfc.csv",row.names=F,quote=F)
 
 # heatmap of the averaged vsd
 library(pheatmap)
