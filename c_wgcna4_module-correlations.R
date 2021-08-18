@@ -7,7 +7,7 @@
 rm(list=ls())
 
 #setwd("~/Dropbox/project/bleww_final/scratchwork")
-setwd("~/Dropbox/codominant_symbiosis/")
+setwd("~/Dropbox/mixed_symbiosis/")
 #=====================================================================================
 #
 #  Code chunk 1
